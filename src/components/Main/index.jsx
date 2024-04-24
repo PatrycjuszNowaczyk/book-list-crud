@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
+import BookList from '@/components/BookList'
+import AddBook from '@/components/AddBook'
 
 const Main = () => {
   
@@ -8,16 +10,8 @@ const Main = () => {
     <Box component="main">
       <Container maxWidth="xl">
         <Routes>
-          <Route path='/add-book' element={
-            <>
-              Add book
-            </>
-          }/>
-          <Route path='/books' element={
-            <>
-              Books
-            </>
-          }/>
+          <Route path="/books" element={<BookList/>}/>
+          <Route path="/add-book" element={<AddBook/>}/>
           <Route path={'/'} element={
             <>
               Home
