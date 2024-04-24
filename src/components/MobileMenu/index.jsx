@@ -26,6 +26,10 @@ const MobileContextConsumer = () => {
     }
   }, [isDesktop, isMenuOpen])
   
+  const handleButtonClick = () => {
+    toggleMenu()
+  }
+  
   return (
     <Container
       max-width="xl"
@@ -88,6 +92,7 @@ const MobileContextConsumer = () => {
                 return (
                   <Button
                     key={link.url}
+                    onClick={handleButtonClick}
                     sx={{
                       border: '1px solid transparent',
                       '&:hover': {
