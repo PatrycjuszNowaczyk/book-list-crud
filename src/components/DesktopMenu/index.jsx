@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Button from '@/components/Button'
@@ -32,6 +33,7 @@ const DesktopMenu = () => {
               <Button
                 key={name}
                 to={url}
+                component={Link}
                 sx={{
                   color: 'inherit',
                   textDecoration: 'none',

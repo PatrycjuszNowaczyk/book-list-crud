@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
@@ -92,6 +93,8 @@ const MobileContextConsumer = () => {
                 return (
                   <Button
                     key={link.url}
+                    to={link.url}
+                    component={Link}
                     onClick={handleButtonClick}
                     sx={{
                       border: '1px solid transparent',
