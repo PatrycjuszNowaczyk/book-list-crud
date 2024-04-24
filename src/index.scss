@@ -1,5 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+html {
+  height: 100%;
 }
+
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+::selection {
+  background-color: #332e3c;
+  color: #fff;
+}
+
+/*
+  clamp(2rem, 8vw, 3rem)
+  clamp(1.875rem, 7.5vw, 2.5rem)
+  clamp(1.625rem, 6.5vw, 2rem)
+  clamp(1.375rem, 6vw, 1.5rem)
+  clamp(1.125rem, 5.5vw, 1.25rem)
+  clamp(0.875rem, 5vw, 1rem)
+*/

@@ -1,14 +1,22 @@
-import { ThemeProvider, CssBaseline } from '@mui/material'
-import { createTheme } from '@mui/material/styles'
-
-const theme = createTheme()
+import Header from '@/components/Header'
+import Main from '@/components/Main'
+import Footer from '@/components/Footer'
+import ThemeContextProvider from '@/contexts/ThemeContext/ThemeContextProvider'
+/*style imports START*/
+import '@fontsource/merienda/300.css'
+import '@fontsource/merienda/400.css'
+import '@fontsource/merienda/500.css'
+import '@fontsource/merienda/700.css'
+/*style imports END*/
 
 function App () {
+  
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <h1>Hello world!</h1>
-    </ThemeProvider>
+    <ThemeContextProvider>
+      <Header/>
+      <Main/>
+      <Footer/>
+    </ThemeContextProvider>
   )
 }
 
