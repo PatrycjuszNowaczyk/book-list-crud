@@ -1,23 +1,23 @@
-import { useContext } from 'react'
-import BookListContext from '@/contexts/BookListContext/BookListContext'
+import Box from '@mui/material/Box'
+import AddBookForm from './AddBookForm'
+import Typography from '@mui/material/Typography'
+
 const AddBook = () => {
-  const { addBook } = useContext(BookListContext)
-
-  const handleAddBook = (event) => {
-    event.preventDefault()
-    const id = new Date().getTime()
-    const title = event.target.title.value
-    addBook({ id, title })
-  }
-
+  
   return (
-    <form onSubmit={handleAddBook}>
-      <label>
-        Title:
-        <input type="text" name="title"/>
-      </label>
-      <button type="submit">Add Book</button>
-    </form>
+    <Box component="section">
+      <Typography
+        gutterBottom
+        variant="h4"
+        sx={{
+          paddingTop: 2,
+          textAlign: 'center',
+        }}
+      >
+        Add Book
+      </Typography>
+      <AddBookForm/>
+    </Box>
   )
 }
 
