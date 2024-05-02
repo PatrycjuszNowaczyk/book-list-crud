@@ -2,11 +2,16 @@ import { useContext, useState } from 'react'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 import Button from '@/components/Button'
-import { Grid } from '@mui/material'
+import { FormGroup, Grid } from '@mui/material'
+import Switch from '@mui/material/Switch'
 import BookListContext from '@/contexts/BookListContext/BookListContext'
+import FormControlLabel from '@mui/material/FormControlLabel'
 
 const initialState = {
   title: '',
+  author: '',
+  cover: '',
+  isRead: false,
 }
 
 const AddBookForm = () => {
@@ -19,6 +24,10 @@ const AddBookForm = () => {
     const bookToAdd = { id, ...book }
     addBook(bookToAdd)
     setBook(initialState)
+  }
+  
+  const handleInputChange = event => {
+    setBook(prev => ({...prev, [event.target.name] : event.target.value}))
   }
   
   return (
@@ -34,12 +43,56 @@ const AddBookForm = () => {
               label="Title"
               size="small"
               value={book.title}
-              onChange={event => setBook({ ...book, title: event.target.value })}
+              onChange={handleInputChange}
+              sx={{
+                marginBottom: 2,
+              }}
+              autoComplete="off"
+            />
+            
+            <TextField
+              type="text"
+              name="author"
+              label="Author"
+              size="small"
+              value={book.author}
+              onChange={handleInputChange}
+              sx={{
+                marginBottom: 2,
+              }}
+              autoComplete="off"
+            />
+            
+            <TextField
+              type="text"
+              name="cover"
+              label="Url of Cover Image"
+              size="small"
+              value={book.cover}
+              onChange={handleInputChange}
               sx={{
                 marginBottom: 2,
               }}
               autoComplete='off'
             />
+            
+            <FormGroup
+              sx={{
+                marginBottom: 2,
+              }}
+            >
+              <FormControlLabel
+                control={
+                  <Switch
+                    name="isRead"
+                    color="primary"
+                    value={book.isRead}
+                    onChange={handleInputChange}
+                  />
+                }
+                label="Read"
+              />
+            </FormGroup>
             
             <Button
               type="submit"
